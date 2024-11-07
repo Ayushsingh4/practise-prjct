@@ -1,0 +1,45 @@
+<h5>I am a childcomponent</h5>
+<table class="table">
+    <thead>
+      <tr>
+       <th> {{impHeader}}</th>
+      </tr>
+      <tr>
+        <th scope="col">SON</th>
+        <th scope="col">Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let child of myData">
+        <td>{{child.id}}</td>
+        <td>{{child.name}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+    <div class="btn-container">
+      <div class="section">
+        <button class="btn btn-dark" (click)="emitData()">Emit Data</button>
+        <button class="btn btn-dark" (click)="getData()">Subscribe</button>
+        <button class="btn btn-dark" (click)="unSubscribe()">Unsubscribe</button>
+      </div>
+    </div>
+    <div class="btn-container">
+      <div class="section">
+        <div *ngFor="let data of subjectData">
+          {{data}}    
+        </div>
+      </div>
+    </div>
+    <div class="col-mg-5">
+      <div class="form-group">
+        <input type="text" placeholder="Send message to dad" #mymessage>
+      </div>
+    </div>
+    <div class="col-mg-5">
+      <div class="form-group">
+        <button (click)="sendMessage(mymessage.value)">Send message</button>
+      </div>
+    </div>
+
+  </div>
